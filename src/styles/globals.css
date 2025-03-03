@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Global styles or styles in the component */
+.signin-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Make it take full height of the viewport */
+    background-color: #f5f5f5; /* Optional: Adds a soft background */
+    padding: 0 20px; /* Add some horizontal padding for better spacing */
+  }
+  
+  .clerk-sign-in {
+    width: 100%;
+    max-width: 400px; /* Optional: Limit the max width of the form */
+    margin: 0 auto; /* Center the form */
+    background: white;
+    padding: 2rem;
+    border-radius: 8px; /* Soft rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a soft shadow around the form */
+  }
+  
