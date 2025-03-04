@@ -1,22 +1,24 @@
 "use client";
 import { useState, useEffect } from "react";
 import { Box, Typography, Card, CardContent, Button, List, ListItem, Dialog, DialogTitle, DialogContent, DialogActions } from "@mui/material";
-import { useUser } from "@clerk/nextjs"; // Import Clerk's user hook
+import { useUser } from "@clerk/nextjs";
 import TopBar from "../TopBar";
 import Sidebar from "../Sidebar";
 
 export default function Opportunities() {
-  const { user } = useUser(); // Get logged-in user details
+  const { user } = useUser();
   const [open, setOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState<{ id: number; title: string; description: string } | null>(null);
   const [registeredEvents, setRegisteredEvents] = useState<{ id: number; title: string; description: string }[]>([]);
 
   useEffect(() => {
-    if (user) {
-      fetch(`/api/register?user=${user.primaryEmailAddress?.emailAddress}`)
+    if (user?.primaryEmailAddress?.emailAddress) {
+      fetch(`/api/register?user=${user.primaryEmailAddress.emailAddress}`)
         .then((res) => res.json())
-        .then((data) => setRegisteredEvents(data));
+        .then((data) => {
+          if (!data.error) setRegisteredEvents(data);
+        });
     }
   }, [user]);
 
@@ -27,12 +29,14 @@ export default function Opportunities() {
   ];
 
   const handleRegister = async () => {
-    if (!selectedEvent || !user) return;
+    if (!selectedEvent || !user?.primaryEmailAddress?.emailAddress) return;
+    
     const res = await fetch("/api/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ event: selectedEvent, user: user.primaryEmailAddress?.emailAddress })
+      body: JSON.stringify({ event: selectedEvent, user: user.primaryEmailAddress.emailAddress })
     });
+
     if (res.ok) {
       setRegisteredEvents([...registeredEvents, selectedEvent]);
       setModalOpen(false);
