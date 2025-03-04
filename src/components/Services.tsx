@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Business, Code, School, TrendingUp } from "@mui/icons-material";
 import { Card, CardContent, Typography, CardActionArea } from "@mui/material";

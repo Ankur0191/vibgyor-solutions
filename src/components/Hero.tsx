@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { Button, Typography, Container } from "@mui/material";
 
