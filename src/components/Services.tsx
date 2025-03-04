@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Business, Code, School, TrendingUp } from "@mui/icons-material";
-import { Card, CardContent, Typography, CardActionArea } from "@mui/material";
+import { Card , Typography, CardActionArea } from "@mui/material";
 
 const services = [
   { title: "Startup Incubation", icon: <Business fontSize="large" />, desc: "Helping startups grow with resources & mentorship." },

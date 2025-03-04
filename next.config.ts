@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
 };
 module.exports = {
   experimental: {
-    turbopack: false, // Disable Turbopack
+    // turbopack: false, // Disable Turbopack
   },
 };
 

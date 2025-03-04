@@ -11,7 +11,7 @@ const events = [
 ];
 
 const Events = () => {
-  const { isLoaded, isSignedIn, user } = useUser();
+  const {  isSignedIn, user } = useUser();
   const [registeredEvents, setRegisteredEvents] = useState<string[]>([]);
   const [loading, setLoading] = useState<string | null>(null);
 

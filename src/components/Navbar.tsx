@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { AppBar, Toolbar, IconButton, Drawer, List, ListItem, ListItemText } from "@mui/material";
+import { AppBar, Toolbar, IconButton, Drawer, List, ListItem, ListItemText, Button } from "@mui/material";
 import { Menu, Close } from "@mui/icons-material";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
+import Image from "next/image";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -27,9 +28,9 @@ const Navbar = () => {
         {/* Logo with Text */}
         <Link href="/" className="flex items-center space-x-2">
           <img
-            src="https://i.ibb.co/VY0pPpRN/logo02.png" // Update with the correct path to your logo image in the public folder
+            src="https://i.ibb.co/VY0pPpRN/logo02.png"
             alt="Vibgyor Solutions Logo"
-            className="h-10" // Adjust the size as needed
+            className="h-10"
           />
           <span className="text-xl font-bold text-white hover:text-blue-500 transition-colors">
             Vibgyor Solutions
@@ -49,7 +50,7 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Authentication Buttons */}
+        {/* Authentication & Dashboard Button */}
         <div className="hidden md:flex items-center gap-4">
           <SignedOut>
             <Link
@@ -60,6 +61,9 @@ const Navbar = () => {
             </Link>
           </SignedOut>
           <SignedIn>
+            <Link href="/dashboard">
+              <Button variant="contained" color="secondary">Dashboard</Button>
+            </Link>
             <UserButton afterSignOutUrl="/" />
           </SignedIn>
         </div>
@@ -91,7 +95,7 @@ const Navbar = () => {
               </ListItem>
             ))}
 
-            {/* Authentication for Mobile */}
+            {/* Authentication & Dashboard Button for Mobile */}
             <SignedOut>
               <ListItem>
                 <Link href="/sign-in" className="text-blue-600 w-full text-center py-2 hover:text-blue-700">
@@ -100,6 +104,13 @@ const Navbar = () => {
               </ListItem>
             </SignedOut>
             <SignedIn>
+              <ListItem>
+                <Link href="/dashboard" className="w-full text-center">
+                  <Button variant="contained" color="secondary" fullWidth>
+                    Dashboard
+                  </Button>
+                </Link>
+              </ListItem>
               <ListItem>
                 <UserButton afterSignOutUrl="/" />
               </ListItem>

@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Button, Typography, Container } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 
 const Hero = () => {
   return (

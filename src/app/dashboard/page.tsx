@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
-import { Box, Toolbar, Typography, useMediaQuery } from "@mui/material";
+import { Box, Toolbar, Typography, useMediaQuery, Drawer } from "@mui/material";
 import Sidebar from "./Sidebar";
 import TopBar from "./TopBar";
 import Profile from "./profile/page";
@@ -36,11 +36,18 @@ export default function Dashboard() {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", height: "100vh", overflow: "hidden" }}>
       {/* Top Navigation */}
-      <TopBar setOpen={setOpen} open={false} />
+      <TopBar setOpen={setOpen} open={open} />
 
       <Box sx={{ display: "flex", flexGrow: 1, overflow: "hidden" }}>
-        {/* Sidebar - hides on mobile */}
-        {!isMobile && <Sidebar open={open} setOpen={setOpen} isMobile={false} />}
+        {/* Mobile Sidebar - Uses Drawer */}
+        {isMobile ? (
+          <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
+            <Sidebar open={open} setOpen={setOpen} isMobile />
+          </Drawer>
+        ) : (
+          /* Desktop Sidebar - Always Visible */
+          <Sidebar open={open} setOpen={setOpen} isMobile={false} />
+        )}
 
         {/* Main Content Area */}
         <Box
@@ -49,7 +56,7 @@ export default function Dashboard() {
             flexGrow: 1,
             width: "100%",
             p: 3,
-            overflowY: "auto", // ✅ Allows vertical scrolling
+            overflowY: "auto",
             minHeight: "100vh",
             transition: "margin 0.3s ease",
           }}

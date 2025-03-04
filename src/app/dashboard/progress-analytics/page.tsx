@@ -2,7 +2,7 @@
 import { Box, Typography } from "@mui/material";
 import Sidebar from "../Sidebar";
 import TopBar from "../TopBar";
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 
 export default function ProgressAnalytics() {
   const [open, setOpen] = useState(true);

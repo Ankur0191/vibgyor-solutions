@@ -32,7 +32,7 @@ export default function DashboardLayout() {
   return (
     <Box sx={{ display: "flex", flexDirection: "column", height: "100vh", overflow: "hidden" }}>
       {/* Top Navigation Bar */}
-      <TopBar setOpen={setOpen} />
+      <TopBar setOpen={setOpen} open={false} />
 
       <Box sx={{ display: "flex", flexGrow: 1, overflow: "hidden" }}>
         {/* Mobile Sidebar - Uses Drawer */}
