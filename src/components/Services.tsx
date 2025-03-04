@@ -1,13 +1,15 @@
 "use client";
 import { motion } from "framer-motion";
-import { Business, Code, School, TrendingUp } from "@mui/icons-material";
+import { Lightbulb, AttachMoney, Business, Storefront, GroupWork, EmojiObjects } from "@mui/icons-material";
 import { Card , Typography, CardActionArea } from "@mui/material";
 
 const services = [
-  { title: "Startup Incubation", icon: <Business fontSize="large" />, desc: "Helping startups grow with resources & mentorship." },
-  { title: "Technical Training", icon: <Code fontSize="large" />, desc: "Industry-level training in emerging technologies." },
-  { title: "Student Programs", icon: <School fontSize="large" />, desc: "Innovative learning programs & internships." },
-  { title: "Career Growth", icon: <TrendingUp fontSize="large" />, desc: "Guidance & networking for career advancement." },
+  { title: "Innovation & Creativity", icon: <Lightbulb fontSize="large" />, desc: "Encouraging groundbreaking ideas and creative thinking." },
+  { title: "Pitching Ideas", icon: <Business fontSize="large" />, desc: "Opportunities for entrepreneurs to present ideas and receive support." },
+  { title: "Entrepreneurship", icon: <GroupWork fontSize="large" />, desc: "A platform to learn, grow, and network in the startup ecosystem." },
+  { title: "VC Connect", icon: <AttachMoney fontSize="large" />, desc: "Direct feedback from successful venture capitalists." },
+  { title: "Funding Opportunities", icon: <Storefront fontSize="large" />, desc: "Connecting participants with funding sources and grants." },
+  { title: "Expo", icon: <EmojiObjects fontSize="large" />, desc: "Showcasing products and innovations to a wider audience." },
 ];
 
 const Services = () => {

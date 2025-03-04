@@ -1,5 +1,5 @@
 "use client";
-import { Box } from "@mui/material";
+import { Box, Toolbar } from "@mui/material";
 import { useState } from "react";
 import Sidebar from "../Sidebar";
 import TopBar from "../TopBar";
@@ -12,16 +12,21 @@ export default function Layout({ children }: LayoutProps) {
   const [open, setOpen] = useState(false);
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", height: "100vh", overflow: "hidden" }}>
+    <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
       {/* TopBar */}
       <TopBar open={open} setOpen={setOpen} />
-
-      <Box sx={{ display: "flex", height: "100vh" }}>
+      
+      {/* Ensures content starts below TopBar */}
+      <Toolbar />
+      
+      <Box sx={{ display: "flex", flexGrow: 1, overflow: "hidden" }}>
         {/* Sidebar */}
         <Sidebar open={open} setOpen={setOpen} isMobile={false} />
 
-        {/* Main Content */}
-        <Box sx={{ p: 3, flexGrow: 1 }}>{children}</Box>
+        {/* Main Content - ✅ Fixed scrolling issue */}
+        <Box sx={{ p: 3, flexGrow: 1, overflowY: "auto", minHeight: "calc(100vh - 64px)" }}>
+          {children}
+        </Box>
       </Box>
     </Box>
   );

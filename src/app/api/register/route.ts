@@ -18,12 +18,30 @@ export async function GET(req: Request) {
 }
 
 export async function POST(req: Request) {
-  const { event, user } = await req.json();
+  try {
+    const body = await req.json();
+    
+    console.log("Received POST request:", body); // ✅ Debug log
 
-  if (!event || !user) {
-    return NextResponse.json({ error: "Missing event or user data" }, { status: 400 });
+    const { event, user } = body;
+
+    if (!event) {
+      console.error("❌ Error: Missing 'event' field.");
+      return NextResponse.json({ error: "Missing 'event' field" }, { status: 400 });
+    }
+
+    if (!user) {
+      console.error("❌ Error: Missing 'user' field.");
+      return NextResponse.json({ error: "Missing 'user' field" }, { status: 400 });
+    }
+
+    console.log("✅ Saving to DB:", { event, user }); // ✅ Log before saving
+
+    await collection.insertOne({ ...event, user });
+
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    console.error("❌ Server Error:", error);
+    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
   }
-
-  await collection.insertOne({ ...event, user });
-  return NextResponse.json({ success: true });
 }
