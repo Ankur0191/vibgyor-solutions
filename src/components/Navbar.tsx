@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { AppBar, Toolbar, IconButton, Drawer, List, ListItem, ListItemText, Button, Divider } from "@mui/material";
 import { Menu, Close } from "@mui/icons-material";
 import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-import Link from "next/link";
 
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -27,15 +28,19 @@ const Navbar = () => {
     <AppBar position="fixed" className="bg-opacity-80 backdrop-blur-lg bg-gray-900 shadow-md">
       <Toolbar className="flex justify-between px-6 py-3">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2">
-          <img
-            src="https://i.ibb.co/VY0pPpRN/logo02.png"
-            alt="Vibgyor Solutions Logo"
-            className="h-10"
-          />
-          <span className="text-xl font-bold text-white hover:text-blue-500 transition-all">
-            Vibgyor Solutions
-          </span>
+        <Link href="/" passHref>
+          <div className="flex items-center space-x-2 cursor-pointer">
+            <Image
+              src="/images/Vibgyor_logo.png"
+              alt="Vibgyor Solutions Logo"
+              width={200}
+              height={200}
+              priority
+            />
+            {/* <span className="text-xl font-bold text-white hover:text-blue-500 transition-all">
+              Vibgyor Solutions
+            </span> */}
+          </div>
         </Link>
 
         {/* Desktop Menu */}
@@ -55,16 +60,17 @@ const Navbar = () => {
         {/* Authentication & Dashboard Button */}
         <div className="hidden md:flex items-center gap-4">
           <SignedOut>
-            <Link
-              href="/sign-in"
-              className="px-5 py-2 bg-blue-600 text-white rounded-lg transition-all hover:bg-blue-700 hover:shadow-lg"
-            >
-              Login
+            <Link href="/sign-in" passHref>
+              <Button variant="contained" color="primary">
+                Login
+              </Button>
             </Link>
           </SignedOut>
           <SignedIn>
-            <Link href="/dashboard">
-              <Button variant="contained" color="secondary">Dashboard</Button>
+            <Link href="/dashboard" passHref>
+              <Button variant="contained" color="secondary">
+                Dashboard
+              </Button>
             </Link>
             <UserButton afterSignOutUrl="/" />
           </SignedIn>
@@ -86,35 +92,29 @@ const Navbar = () => {
             </IconButton>
           </div>
           <Divider className="bg-gray-700" />
-          
+
           {/* Menu Items */}
           <List className="flex-1 p-4 space-y-4">
             {menuItems.map((item) => (
-              <ListItem
-                key={item}
-                onClick={() => handleScroll(item.toLowerCase())}
-                component="button" // Fix: Removed `button` prop error
-                className="text-gray-300 hover:text-blue-500 text-lg"
-              >
-                <ListItemText primary={item} />
+              <ListItem key={item} component="li" onClick={() => handleScroll(item.toLowerCase())}>
+                <ListItemText primary={item} className="text-gray-300 hover:text-blue-500 text-lg" />
               </ListItem>
             ))}
           </List>
 
           <Divider className="bg-gray-700" />
-          
+
           {/* Authentication */}
           <div className="p-4 flex flex-col gap-4">
             <SignedOut>
-              <Link
-                href="/sign-in"
-                className="text-center py-2 bg-blue-600 text-white rounded-lg transition-all hover:bg-blue-700"
-              >
-                Login
+              <Link href="/sign-in" passHref>
+                <Button variant="contained" color="primary" fullWidth>
+                  Login
+                </Button>
               </Link>
             </SignedOut>
             <SignedIn>
-              <Link href="/dashboard" className="text-center">
+              <Link href="/dashboard" passHref>
                 <Button variant="contained" color="secondary" fullWidth>
                   Dashboard
                 </Button>

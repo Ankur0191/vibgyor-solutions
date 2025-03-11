@@ -3,25 +3,27 @@
 import Image from "next/image";
 
 const partners = [
-  { 
-    title: "SUPPORTED BY", 
-    names: ["Rod Circle", "Goog", "DAP"], 
-    image: "/images/supported_by.jpg"
+  { title: "SUPPORTED BY", names: [
+      { name: "Red Circle", logo: "/images/redcircle.png" },
+      // { name: "Goog", logo: "/logos/goog.png" },
+      { name: "DAP", logo: "/images/DAP.jpeg" }
+    ] 
   },
-  { 
-    title: "INCUBATION PARTNER", 
-    names: ["ISB FITT I-RISE", "VENTURENEST", "MBCIE", "BIRMINGHAM CITY"], 
-    image: "/images/incubation_partner.jpg"
+  { title: "INCUBATION PARTNER", names: [
+      { name: "ISB FITT I-RISE", logo: "/images/AIC-ISB-Logo-Black.png" },
+      { name: "FITT", logo: "/images/fiit.png" },
+      { name: "VENTURENEST", logo: "/images/cgc_venturenest_logo_n1 2.f5a6481180a336629ccc.png" },
+      { name: "MBCIE", logo: "/images/1642749289926.jpeg" },
+      { name: "BIRMINGHAM CITY", logo: "/images/birg.png" }
+    ] 
   },
-  { 
-    title: "INVESTOR NETWORK", 
-    names: ["Punjab Angels Network"], 
-    image: "/images/investor_network.jpg"
+  { title: "INVESTOR NETWORK", names: [
+      { name: "Punjab Angels Network", logo: "/images/punjabangelsnetwork_logo.jpeg" }
+    ] 
   },
-  { 
-    title: "ACCELERATOR PARTNER", 
-    names: ["Marwari Catalysts"], 
-    image: "/images/accelerator_partner.jpg"
+  { title: "ACCELERATOR PARTNER", names: [
+      { name: "Marwari Catalysts", logo: "/images/logo black.png" }
+    ] 
   },
 ];
 
@@ -38,19 +40,21 @@ const SupportedBy = () => {
       <div className="max-w-6xl mx-auto mt-12 grid md:grid-cols-2 gap-10">
         {partners.map((partner, index) => (
           <div key={index} className="bg-white p-6 rounded-xl shadow-lg">
-            <Image 
-              src={partner.image} 
-              alt={partner.title} 
-              width={500} 
-              height={300} 
-              className="rounded-lg mb-4 w-full object-cover"
-            />
-            <h2 className="text-2xl font-bold text-blue-600 mb-4">{partner.title}</h2>
-            <ul className="text-gray-700 space-y-2">
-              {partner.names.map((name, idx) => (
-                <li key={idx} className="text-lg">✅ {name}</li>
+            <h2 className="text-2xl font-bold text-blue-600 mb-4 text-center">{partner.title}</h2>
+            <div className="flex flex-wrap justify-center gap-6">
+              {partner.names.map((partnerDetail, idx) => (
+                <div key={idx} className="flex flex-col items-center">
+                  <Image 
+                    src={partnerDetail.logo} 
+                    alt={partnerDetail.name} 
+                    width={100} 
+                    height={100} 
+                    className="rounded-lg"
+                  />
+                  <p className="mt-2 text-lg font-semibold text-gray-800">{partnerDetail.name}</p>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         ))}
       </div>

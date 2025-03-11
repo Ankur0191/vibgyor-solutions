@@ -28,7 +28,7 @@ const SkillIndia = () => {
         {/* Initiative For */}
         <div className="bg-white p-6 rounded-xl shadow-lg">
           <Image 
-            src="/images/initiative.jpg"  // ✅ Corrected path
+            src="/images/G20_India_2023_logo.svg.png"  // ✅ Corrected path
             alt="Initiative for Sustainable Development" 
             width={500} 
             height={300} 

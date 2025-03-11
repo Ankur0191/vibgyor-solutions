@@ -4,9 +4,9 @@ import { Lightbulb, AttachMoney, Business, Storefront, GroupWork, EmojiObjects }
 import { Card , Typography, CardActionArea } from "@mui/material";
 
 const services = [
-  { title: "Innovation & Creativity", icon: <Lightbulb fontSize="large" />, desc: "Encouraging groundbreaking ideas and creative thinking." },
+  // { title: "Innovation & Creativity", icon: <Lightbulb fontSize="large" />, desc: "Encouraging groundbreaking ideas and creative thinking." },
   { title: "Pitching Ideas", icon: <Business fontSize="large" />, desc: "Opportunities for entrepreneurs to present ideas and receive support." },
-  { title: "Entrepreneurship", icon: <GroupWork fontSize="large" />, desc: "A platform to learn, grow, and network in the startup ecosystem." },
+  // { title: "Entrepreneurship", icon: <GroupWork fontSize="large" />, desc: "A platform to learn, grow, and network in the startup ecosystem." },
   { title: "VC Connect", icon: <AttachMoney fontSize="large" />, desc: "Direct feedback from successful venture capitalists." },
   { title: "Funding Opportunities", icon: <Storefront fontSize="large" />, desc: "Connecting participants with funding sources and grants." },
   { title: "Expo", icon: <EmojiObjects fontSize="large" />, desc: "Showcasing products and innovations to a wider audience." },

@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import Events from "@/components/Events";
-import Sponsors from "@/components/Sponsors";
+// import Sponsors from "@/components/Sponsors";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import About from "@/components/About";
@@ -22,7 +22,7 @@ export default function Home() {
       <Mentors />
       <SupportedBy />
       <SkillIndia />
-      <Sponsors />
+      {/* <Sponsors /> */}
       <Contact />
       <Footer />
     </>

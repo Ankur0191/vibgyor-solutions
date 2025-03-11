@@ -42,6 +42,23 @@ const eventFlow = [
     up to ₹10 Cr, with digital, tech, and office setup support.`,
   },
 ];
+const teamMembers = [
+  {
+    name: "Deepak Garg",
+    role: "CEO",
+    image: "/images/deepak.jpeg", // Replace with actual image path
+  },
+  {
+    name: "Pooja Punchi",
+    role: "Director, Mental Health Specialist & Member of CCPCR Vibgyor Solution",
+    image: "/images/WhatsApp Image 2025-03-09 at 3.01.39 PM (1).jpeg", // Replace with actual image path
+  },
+  {
+    name: "Ms. Deepali",
+    role: "Managing Director",
+    image: "/images/deepali.jpeg", // Replace with actual image path
+  },
+];
 
 const awards = [
   {
@@ -155,6 +172,31 @@ const Events = () => {
           ))}
         </div>
       </div>
+
+
+      {/* Team Members Section */}
+<div className="max-w-5xl mx-auto mt-12">
+  <h3 className="text-2xl font-semibold text-gray-800 text-center mb-6">👥 Meet Our Team</h3>
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {teamMembers.map((member, index) => (
+      <motion.div 
+        key={index} 
+        className="bg-white p-6 rounded-lg shadow-md text-center" 
+        initial={{ opacity: 0, y: 10 }} 
+        animate={{ opacity: 1, y: 0 }} 
+        transition={{ duration: 0.6, delay: index * 0.2 }}>
+        <img 
+          src={member.image} 
+          alt={member.name} 
+          className="w-32 h-32 mx-auto rounded-full object-cover shadow-lg" 
+        />
+        <h4 className="text-xl font-semibold text-gray-900 mt-4">{member.name}</h4>
+        <p className="text-gray-600 text-sm mt-2">{member.role}</p>
+      </motion.div>
+    ))}
+  </div>
+</div>
+
 
       {/* Registration Button */}
       <div className="text-center mt-12">
