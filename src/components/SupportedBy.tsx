@@ -27,6 +27,10 @@ const partners = [
       { name: "", logo: "/images/logo black.png" }
     ] 
   },
+  { title: "TECH PARTNER", names: [
+    { name: "", logo: "/images/CMATRIX_LOGO-Photoroom.png" }
+  ] 
+},
 ];
 
 const SupportedBy = () => {
