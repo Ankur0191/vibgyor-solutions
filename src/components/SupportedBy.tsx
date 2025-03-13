@@ -4,9 +4,9 @@ import Image from "next/image";
 
 const partners = [
   { title: "SUPPORTED BY", names: [
-      { name: "Red Circle", logo: "/images/redcircle.png" },
+      { name: "", logo: "/images/WhatsApp Image 2025-03-13 at 3.01.51 PM.jpeg" },
       // { name: "Goog", logo: "/logos/goog.png" },
-      { name: "DAP", logo: "/images/DAP.jpeg" }
+      { name: "", logo: "/images/DAP.jpeg" }
     ] 
   },
   { title: "INCUBATION PARTNER", names: [
