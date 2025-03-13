@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 
 const sponsors = ["/logo1.png", "/logo2.png", "/logo3.png", "/logo4.png"];

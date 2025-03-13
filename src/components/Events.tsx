@@ -44,6 +44,11 @@ const eventFlow = [
 ];
 const teamMembers = [
   {
+    name: "Ms. Deepali",
+    role: "Managing Director",
+    image: "/images/deepali.jpeg", // Replace with actual image path
+  },
+  {
     name: "Deepak Garg",
     role: "CEO",
     image: "/images/deepak.jpeg", // Replace with actual image path
@@ -53,11 +58,7 @@ const teamMembers = [
     role: "Director, Mental Health Specialist & Member of CCPCR Vibgyor Solution",
     image: "/images/WhatsApp Image 2025-03-09 at 3.01.39 PM (1).jpeg", // Replace with actual image path
   },
-  {
-    name: "Ms. Deepali",
-    role: "Managing Director",
-    image: "/images/deepali.jpeg", // Replace with actual image path
-  },
+  
 ];
 
 const awards = [

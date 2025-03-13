@@ -10,19 +10,21 @@ const partners = [
     ] 
   },
   { title: "INCUBATION PARTNER", names: [
-      { name: "ISB FITT I-RISE", logo: "/images/AIC-ISB-Logo-Black.png" },
-      { name: "FITT", logo: "/images/fiit.png" },
-      { name: "VENTURENEST", logo: "/images/cgc_venturenest_logo_n1 2.f5a6481180a336629ccc.png" },
-      { name: "MBCIE", logo: "/images/1642749289926.jpeg" },
-      { name: "BIRMINGHAM CITY", logo: "/images/birg.png" }
+      { name: "", logo: "/images/AIC-ISB-Logo-Black.png" },
+      { name: "", logo: "/images/fiit.png" },
+      { name: "", logo: "/images/cgc_venturenest_logo_n1 2.f5a6481180a336629ccc.png" },
+      { name: "", logo: "/images/1642749289926.jpeg" },
+      // { name: "BIRMINGHAM CITY", logo: "/images/birg.png" }
     ] 
   },
   { title: "INVESTOR NETWORK", names: [
-      { name: "Punjab Angels Network", logo: "/images/punjabangelsnetwork_logo.jpeg" }
+      { name: "", logo: "/images/punjabangelsnetwork_logo.jpeg" },
+      { name: "", logo: "/images/ludhiana_angels_network_logo.jpeg" }
     ] 
   },
+  
   { title: "ACCELERATOR PARTNER", names: [
-      { name: "Marwari Catalysts", logo: "/images/logo black.png" }
+      { name: "", logo: "/images/logo black.png" }
     ] 
   },
 ];
